@@ -1,13 +1,30 @@
 import Calendar from 'react-calendar'
 import dayjs from 'dayjs';
+import { useState, useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css'
 import './AnniversaryCalendar.css'
 
 const AnniversaryCalendar = () => {
     //2022.11.6
+    const [today, setToday] = useState()
+    const [dDay, setDday] = useState(0)
+
     const anniversay = new Date('2022-11-06')
-    const today = new Date();
-    const d_day = Math.ceil((anniversay.getTime() - today.getTime()) / (1000*60*60*24))
+    
+    const timer = setInterval(()=>{
+        const date = new Date()
+        const year = String(date.getFullYear())
+        const month = String(date.getMonth())
+        const day = String(date.getDate())
+
+        const remainingDays =  parseInt(anniversay.getTime()) - parseInt(date.getTime())
+
+        setToday(`${year}년 ${month}월 ${day}일`)
+        setDday(Math.floor(remainingDays / (1000*60*60*24)))
+
+    }, 1000)
+
+    setInterval(timer, 5000)
 
     return(
         <div>
@@ -17,7 +34,8 @@ const AnniversaryCalendar = () => {
                 formatYear={(locale, date) => dayjs(date).format('')}
                 formatDay={(locale, date) => dayjs(date).format('DD')}
             />
-            <span>* <b>{d_day}일</b> 남았습니다.</span>
+            <span>* <b>{dDay}일</b> 남았습니다.</span>
+            <div>오늘은 {today}</div>
         </div>
     )
 }
