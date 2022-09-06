@@ -1,8 +1,9 @@
 import ImageItem from "./ImageItem"
+import { forwardRef } from "react";
 
-const ImageList = () => {
+const ImageList = forwardRef((props, ref) => {
     return (
-        <div>
+        <div ref={ref}>
             <ImageItem></ImageItem>
             <ImageItem></ImageItem>
             <ImageItem></ImageItem>
@@ -10,5 +11,5 @@ const ImageList = () => {
             <ImageItem></ImageItem>
         </div>
     )
-}
+})
 export default ImageList
