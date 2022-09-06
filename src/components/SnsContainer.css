@@ -1,0 +1,9 @@
+.sns_container{
+    background-color: beige;
+}
+
+.sns_item_container{
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}

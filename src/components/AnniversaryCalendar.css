@@ -1,0 +1,29 @@
+.disable_click{
+    pointer-events: none;
+    cursor: default;
+}
+
+.react-calendar{
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+    border-color: transparent;
+}
+
+.react-calendar__month-view__weekdays{
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+    border-bottom-color: gray;
+    border-bottom-width: 1px;
+    border-bottom-style:solid;
+    
+    border-top-color: gray;
+    border-top-width: 1px;
+    border-top-style:solid;
+}
+
+.react-calendar__navigation__arrow{
+    display: none;
+}
+
