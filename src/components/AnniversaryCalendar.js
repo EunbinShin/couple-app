@@ -9,25 +9,27 @@ const AnniversaryCalendar = () => {
     const [today, setToday] = useState()
     const [dDay, setDday] = useState(0)
 
-    const anniversay = new Date('2022-11-06')
+    const anniversay = new Date('2022-11-06 00:00:00')
     
-    const timer = setInterval(()=>{
-        const date = new Date()
-        const year = String(date.getFullYear())
-        const month = String(date.getMonth())
-        const day = String(date.getDate())
-
-        const remainingDays =  parseInt(anniversay.getTime()) - parseInt(date.getTime())
-
-        setToday(`${year}년 ${month}월 ${day}일`)
-        setDday(Math.floor(remainingDays / (1000*60*60*24)))
-
-    }, 1000)
-
-    setInterval(timer, 5000)
+    useEffect(()=>{
+        const timer = setInterval(()=>{
+            const date = new Date()
+            const year = String(date.getFullYear())
+            const month = String(date.getMonth()+1)
+            const day = String(date.getDate())
+    
+            const remainingDays =  parseInt(anniversay.getTime()) - parseInt(date.getTime())
+    
+            setToday(`${year}년 ${month}월 ${day}일`)
+            setDday(Math.ceil(remainingDays / (1000*60*60*24)))
+    
+        }, 5000)
+        return (()=>clearInterval(timer))
+    }, [])
+    
 
     return(
-        <div>
+        <div className='calendarContainer'>
             <Calendar 
                 className='disable_click'
                 value={anniversay}
