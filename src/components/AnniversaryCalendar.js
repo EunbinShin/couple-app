@@ -28,8 +28,8 @@ const AnniversaryCalendar = forwardRef((props, ref) => {
     }, [])
 
     return(
-        <div ref={ref}>
-            <div>{props.anniversary.content}</div>
+        <div ref={ref} className="anniversary_calendar">
+            <div className='anniversary_content'>{props.anniversary.content}</div>
             <Calendar 
                 className='disable_click'
                 value={anniversay}

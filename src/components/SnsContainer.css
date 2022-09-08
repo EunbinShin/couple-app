@@ -1,8 +1,17 @@
 .sns_container{
+    margin-top: 160px;
     background-color: beige;
 }
 
+.sns_container h2{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: white;
+    text-shadow:1px 1px 1px rgb(125, 125, 125);
+}
+
 .sns_item_container{
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     height: 300px;

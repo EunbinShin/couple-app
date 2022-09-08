@@ -24,7 +24,10 @@ const MainContainer = () => {
     return (
         <Card className='main_container'>
             <HeadNavigator onScroll={scrollToHandler}></HeadNavigator>
-            <h1 ref={el => compRef.current[0] = el}>{myData.main_text}</h1>
+            <h1 style={{
+                marginTop: '100px',
+                marginBottom: '120px',
+            }} ref={el => compRef.current[0] = el}>{myData.main_text}</h1>
             <ImageList images={myData.images} ref={el => compRef.current[1] = el}></ImageList>
             <AnniversaryCalendar anniversary={myData.anniversary} ref={el => compRef.current[2] = el}></AnniversaryCalendar>
             <SnsContainer snsData={myData.sns} ref={el => compRef.current[3] = el}></SnsContainer>
