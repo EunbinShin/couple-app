@@ -1,13 +1,9 @@
 import ImageItem from "./ImageItem"
 
-const ImageList = () => {
+const ImageList = (props) => {
     return (
         <div>
-            <ImageItem></ImageItem>
-            <ImageItem></ImageItem>
-            <ImageItem></ImageItem>
-            <ImageItem></ImageItem>
-            <ImageItem></ImageItem>
+            {props.images.map((image, idx)=><ImageItem key={idx} src={image}/>)}
         </div>
     )
 }

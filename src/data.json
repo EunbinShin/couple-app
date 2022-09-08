@@ -1,0 +1,24 @@
+{
+    "main_text": "이것이 메인 텍스트 ~",
+    "name" : ["name1", "name2"],
+    "images": [
+        "/img/1.jpeg",
+        "/img/2.png",
+        "/img/3.jpg",
+        "/img/4.jpg"],
+    "anniversary" : {"content": "생일",
+                     "date":  "2022-12-20 00:00:00"},
+    "sns": [{
+                "link": "http://naver.com",
+                "icon": "https://img.icons8.com/color/96/000000/twitter-circled--v1.png"
+            },{
+                "link": "http://naver.com",
+                "icon": "https://img.icons8.com/color/144/000000/instagram-new--v1.png"
+            },{
+                "link": "http://naver.com",
+                "icon": "https://img.icons8.com/ios-filled/100/000000/github.png"
+            },{
+                "link": "http://naver.com",
+                "icon": "https://img.icons8.com/color/96/000000/blog.png"
+            }]
+}

@@ -3,14 +3,15 @@ import dayjs from 'dayjs';
 import 'react-calendar/dist/Calendar.css'
 import './AnniversaryCalendar.css'
 
-const AnniversaryCalendar = () => {
+const AnniversaryCalendar = (props) => {
     //2022.11.6
-    const anniversay = new Date('2022-11-06')
+    const anniversay = new Date(props.anniversary.date)
     const today = new Date();
     const d_day = Math.ceil((anniversay.getTime() - today.getTime()) / (1000*60*60*24))
 
     return(
         <div>
+            <div>{props.anniversary.content}</div>
             <Calendar 
                 className='disable_click'
                 value={anniversay}
