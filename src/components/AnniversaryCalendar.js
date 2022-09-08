@@ -1,17 +1,34 @@
 import Calendar from 'react-calendar'
 import dayjs from 'dayjs';
+import { forwardRef } from "react";
 import { useState, useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css'
 import './AnniversaryCalendar.css'
 
-const AnniversaryCalendar = (props) => {
+const AnniversaryCalendar = forwardRef((props, ref) => {
     //2022.11.6
     const anniversay = new Date(props.anniversary.date)
-    const today = new Date();
-    const d_day = Math.ceil((anniversay.getTime() - today.getTime()) / (1000*60*60*24))
+    const [today, setToday] = useState()
+    const [dDay, setDday] = useState(0)
+
+    useEffect(()=>{
+        const timer = setInterval(()=>{
+            const date = new Date()
+            const year = String(date.getFullYear())
+            const month = String(date.getMonth()+1)
+            const day = String(date.getDate())
+    
+            const remainingDays =  parseInt(anniversay.getTime()) - parseInt(date.getTime())
+    
+            setToday(`${year}년 ${month}월 ${day}일`)
+            setDday(Math.ceil(remainingDays / (1000*60*60*24)))
+    
+        }, 5000)
+        return (()=>clearInterval(timer))
+    }, [])
 
     return(
-        <div>
+        <div ref={ref}>
             <div>{props.anniversary.content}</div>
             <Calendar 
                 className='disable_click'
@@ -23,6 +40,6 @@ const AnniversaryCalendar = (props) => {
             <div>오늘은 {today}</div>
         </div>
     )
-}
+})
 
 export default AnniversaryCalendar
