@@ -1,5 +1,6 @@
 import Calendar from 'react-calendar'
 import dayjs from 'dayjs';
+import { useState, useEffect } from 'react';
 import 'react-calendar/dist/Calendar.css'
 import './AnniversaryCalendar.css'
 
@@ -18,7 +19,8 @@ const AnniversaryCalendar = (props) => {
                 formatYear={(locale, date) => dayjs(date).format('')}
                 formatDay={(locale, date) => dayjs(date).format('DD')}
             />
-            <span>* <b>{d_day}일</b> 남았습니다.</span>
+            <span>* <b>{dDay}일</b> 남았습니다.</span>
+            <div>오늘은 {today}</div>
         </div>
     )
 }
